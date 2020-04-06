@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ thing.title }}</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <text_title>{{ thing.title }}</text_title>
+    {% if thing.photo %}
+        <img src='{{ thing.photo.url }}' alt='{{ thing.text }}'/>
+    {% endif %}
+    <text>{{ thing.text }}</text>
+</div>
+<form method='post'>
+    {% csrf_token %}
+    <textarea name='text' placeholder="Текст"></textarea>
+    <input type='submit' value='Сохранить'/>
+</form>
+{% if comments %}
+    {% for comment in comments %}
+        <div>
+           {{ comment.author }}:{{ comment.text }}
+        </div>
+    {% endfor %}
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+.rounder {
+    position: relative; /* Относительное позиционирование */
+    float: left; /* Выравнивание по левому краю с обтеканием */
+    padding: 20px;
+}
+
+.rounder div {
+    padding: 20px;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0;
+    left: 0; /* Нулевые координаты */
+}
+
+.rounder img {
+    width: 450px;
+    height: 300px;
+}
+
+.block {
+    margin: 0 auto;
+    width: 1145px;
+    height: 340px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.txt h1 {
+    padding-top: 20px;
+    margin-bottom: 0;
+    color: #2481ff;
+    font-size: 36px;
+}
+
+.txt a{
+    text-decoration: none;
+}
+
+.txt p {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.box {
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    height: 205px;
+    width: 500px;
+}
+
+.box__in {
+    -webkit-column-width: 150px;
+    -moz-column-width: 150px;
+    column-width: 550px;
+    height: 100%;
+}

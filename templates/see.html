@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>See page</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <link rel="stylesheet" href="{% static 'admin/css/see.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/main.css' %}">
+</head>
+<body>
+<div class="container">
+    <form method='POST'>
+        {% csrf_token %}
+        <input type='text' name='name'/>
+        <input type='submit' value='Найти'/>
+    </form>
+    {% for i in pages %}
+    <a href='page/{{ i }}'>{{ i }}</a>
+    {% endfor %}
+    {% for thing in things %}
+    <div class="block">
+        <div class="rounder">
+            {% if thing.photo %}
+                <img src="{{ thing.photo.url }}" alt="Фотки не будет, она приняла ислам" width='450' height='300'>
+                <div><img src="{% static 'admin/img/png_ff.png' %}" alt=" пасхалка " width='450' height='300'></div>
+            {% else %}
+                <img src="{% static 'admin/img/netu.png' %}" alt="Фотки не будет, она приняла ислам" width='450' height='300'>
+                <div><img src="{% static 'admin/img/png_ff.png' %}" alt=" пасхалка " width='450' height='300'></div>
+            {% endif %}
+            <!--
+            {% if thing.tag %}
+                <a href='{{ thing.tag }}'>{{ thing.tag }}</a>
+            {% endif %}
+            -->
+        </div>
+        <div class="txt">
+           <a href='{{ thing.id }}'><h1>{{ thing.title }}</h1></a>
+            <div class="box">
+                <p class="box__in">{{ thing.text }}</p>
+            </div>
+            <p>Дата публикации: {{ thing.date }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.container {
+    text-align: center;
+}
+.block {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -125px;
+
+}
+
+.btn {
+    font-family: 'Arial';
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    background: #238bff;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.btn:hover {
+    background: #056cdf;
+}

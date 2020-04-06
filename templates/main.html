@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main page</title>
+    <link rel="stylesheet" href="{% static 'admin/css/style_main.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/main.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1 class="test">Выберите дальнейшее действие</h1>
+    <div class="block">
+        <a class="btn" id='add' href='add'>Добавить вещь</a>
+        <a class="btn" id='see' href='see'>Посмотреть потеряшки</a>
+    </div>
+</div>
+</body>
+</html>
