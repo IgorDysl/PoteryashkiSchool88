@@ -2,15 +2,70 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Данные о тебе</title>
+    <title>Твои данные</title>
+    <style>
+        text_mob {
+            word-wrap: break-word;
+            font-family: 'Arial';
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 50px;
+        }
+        text {
+            word-wrap: break-word;
+            font-family: 'Arial';
+            font-weight: bold;
+            color: #ffffff;
+        }
+        div {
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 90%;
+            position: absolute;
+            text-align: left;
+            background: #238bff;
+            border-radius: 3%;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-{{ meta }}
-iP: {{ ip }}
-Метод запроса: {{ req }}
-URL запроса: {{ request_url }}
-Протокол: {{ protocol }}
-Браузер: {{ browser }}
-ОС: {{ os }}
+{% if mob %}
+    <div>
+        <text_mob>
+        iP: {{ ip }}<br/>
+        Порт: {{ port }}<br/>
+        Протокол: {{ protocol }}<br/>
+        Метод запроса: {{ req }}<br/>
+        ОС: {{ os }}<br/>
+        URL запроса: {{ request_url }}<br/>
+        Браузер: {{ browser }}<br/>
+        User Agent: {{ user_agent }}<br/>
+        Принимаемые форматы: {{ formats }}<br/>
+        Предпочитаемые языки: {{ langs }}<br/>
+        Mime типы: {{ mime }}<br/>
+        Cookies: {{ cookie }}<br/>
+        Mobile: {{ mob }}
+        </text_mob>
+    </div>
+{% else %}
+    <div>
+        <text>
+        iP: {{ ip }}<br/>
+        Порт: {{ port }}<br/>
+        Протокол: {{ protocol }}<br/>
+        Метод запроса: {{ req }}<br/>
+        ОС: {{ os }}<br/>
+        URL запроса: {{ request_url }}<br/>
+        Браузер: {{ browser }}<br/>
+        User Agent: {{ user_agent }}<br/>
+        Принимаемые форматы: {{ formats }}<br/>
+        Предпочитаемые языки: {{ langs }}<br/>
+        Mime типы: {{ mime }}<br/>
+        Cookies: {{ cookie }}<br/>
+        Mobile: {{ mob }}
+        </text>
+    </div>
+{% endif %}
 </body>
 </html>

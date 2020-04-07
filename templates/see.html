@@ -7,17 +7,28 @@
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <link rel="stylesheet" href="{% static 'admin/css/see.css' %}">
     <link rel="stylesheet" href="{% static 'admin/css/main.css' %}">
+    <style>
+        form {
+            margin-top: 20px;
+            margin-left: 100px;
+        }
+
+        .pan {
+            margin-left: 100px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <form method='POST'>
         {% csrf_token %}
-        <input type='text' name='name'/>
+        <input type='text' name='name' placeholder="Поиск"/>
         <input type='submit' value='Найти'/>
+        {% for i in pages %}
+            <a href='https://school88tyumen.pythonanywhere.com/see/page/{{ i }}'>{{ i }}</a>
+        {% endfor %}
+        <a href='https://school88tyumen.pythonanywhere.com'>На главную</a>
     </form>
-    {% for i in pages %}
-    <a href='page/{{ i }}'>{{ i }}</a>
-    {% endfor %}
     {% for thing in things %}
     <div class="block">
         <div class="rounder">

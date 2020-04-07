@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
     <link rel="stylesheet" href="{% static 'admin/css/style_main.css' %}">
     <link rel="stylesheet" href="{% static 'admin/css/main.css' %}">
@@ -12,6 +12,13 @@
 <div class="container">
     <h1 class="test">Выберите дальнейшее действие</h1>
     <div class="block">
+        {% if request.user.is_authenticated %}
+            Аккаунт: {{ request.user }}
+            <a href='https://school88tyumen.pythonanywhere.com/see/accounts/logout'>Выйти</a>
+        {% else %}
+            <a href='https://school88tyumen.pythonanywhere.com/see/accounts/login'>Войти</a>
+            <a href='https://school88tyumen.pythonanywhere.com/see/accounts/signup'>Зарегистрироваться</a>
+        {% endif %}
         <a class="btn" id='add' href='add'>Добавить вещь</a>
         <a class="btn" id='see' href='see'>Посмотреть потеряшки</a>
     </div>

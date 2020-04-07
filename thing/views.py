@@ -78,8 +78,15 @@ def meta(request):
     requrl = request.META['REQUEST_URI']
     server_protocol = request.META['SERVER_PROTOCOL']
     data = request.META['HTTP_USER_AGENT']
+    user_agent = data
     data = user_agents.parse(data)
-    #return HttpResponse(meta)
+    port = request.META['REMOTE_PORT']
+    formats = request.META['HTTP_ACCEPT_ENCODING']
+    accerp_lang = request.META['HTTP_ACCEPT_LANGUAGE']
+    mime = request.META['HTTP_ACCEPT']
+    try:
+        cookie = request.META['HTTP_ACCEPT'] if cookie else 'Нет'
+    except: cookie = 'Нет'
     return render(request, 'meta.html', {
                                             'meta' : meta,
                                             'ip' : ip,
@@ -87,5 +94,12 @@ def meta(request):
                                             'request_url' : requrl ,
                                             'protocol' : server_protocol,
                                             'browser' : data.browser.family+' '+data.browser.version_string,
-                                            'os' : data.os.family+' '+data.os.version_string
+                                            'os' : data.os.family+' '+data.os.version_string,
+                                            'port' : port,
+                                            'user_agent' : user_agent,
+                                            'formats' : formats,
+                                            'langs' : accerp_lang,
+                                            'mime' : mime,
+                                            'cookie' : cookie,
+                                            'mob' : True if ('iOS' in data.os.family) or ('Android' in data.os.family) else False
                                         })
